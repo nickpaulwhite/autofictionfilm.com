@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AUTOFICTION | A film by Nick Paul White</title>
+<meta name="description" content="AUTOFICTION is a darkly comic self-portrait of a filmmaker attempting to rewrite his own past and discovering just how slippery walking the line between fact and fiction can be. World premiere at the Lone Star Film Festival, November 6, 2026.">
+<meta property="og:type" content="video.movie">
+<meta property="og:title" content="AUTOFICTION">
+<meta property="og:description" content="A darkly comic self-portrait of a filmmaker attempting to rewrite his own past. World premiere: Lone Star Film Festival, Friday, November 6, 2026.">
+<meta property="og:image" content="https://autofictionfilm.com/img/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1C1612">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="stylesheet" href="https://use.typekit.net/uig0exw.css">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{
+  --darkroom:#1C1612; --board:#26201B; --paper:#F2E6D3; --ink:#2A1A13;
+  --amber:#CDA26B; --pen:#B5301E; --cream:#F1ECE2; --muted:#A8998A;
+  --type:"courier-prime","Courier Prime","Courier New",monospace;
+  --hand:"adobe-handwriting-ernie","Bradley Hand",cursive;
+  --gutter:clamp(16px,4vw,56px);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .45 0 0 0 0 .4 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --fibre:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .09' numOctaves='4' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .34 0 0 0 0 .2 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--darkroom);overflow-x:clip}
+body{margin:0;color:var(--cream);font-family:var(--type);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::after{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:100;background:var(--grain);opacity:.07;mix-blend-mode:overlay}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px dashed var(--amber);outline-offset:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ---------- materials ---------- */
+.paper{position:relative;background:
+   radial-gradient(120% 80% at 15% 0%,rgba(255,255,255,.45),transparent 55%),
+   radial-gradient(90% 70% at 90% 100%,rgba(140,100,55,.14),transparent 60%),
+   var(--fibre),var(--paper);
+  color:var(--ink)}
+.shadow{filter:drop-shadow(0 22px 26px rgba(0,0,0,.5)) drop-shadow(0 2px 3px rgba(0,0,0,.35))}
+.tape{position:absolute;width:120px;height:34px;background:rgba(236,226,200,.62);box-shadow:0 1px 2px rgba(0,0,0,.15);
+  -webkit-mask:linear-gradient(90deg,transparent 0 2px,#000 3px calc(100% - 3px),transparent calc(100% - 2px));z-index:3}
+.tape::after{content:"";position:absolute;inset:0;background:var(--grain);opacity:.25;mix-blend-mode:multiply}
+.label{height:clamp(46px,6vw,74px);width:auto;margin:0 0 28px}
+.pen{color:var(--pen);font-family:var(--hand)}
+.mark{position:relative;white-space:nowrap}
+.mark svg{position:absolute;left:-3%;width:106%;height:.7em;bottom:-.42em;overflow:visible;pointer-events:none}
+.mark path,.circle path{fill:none;stroke:var(--pen);stroke-width:2.6;stroke-linecap:round;stroke-dasharray:var(--len,600);stroke-dashoffset:var(--len,600);transition:stroke-dashoffset 1.1s cubic-bezier(.6,.1,.3,1)}
+.in .mark path{stroke-dashoffset:0}
+
+/* ---------- header ---------- */
+.bar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;
+  padding:16px var(--gutter);transition:background .4s,padding .4s}
+.bar.solid{background:rgba(28,22,18,.92);backdrop-filter:blur(6px);padding:10px var(--gutter)}
+.bar .mini{height:24px;width:auto;opacity:0;transform:translateY(-6px);transition:opacity .4s,transform .4s}
+.bar.solid .mini{opacity:1;transform:none}
+.bar nav{display:flex;gap:clamp(14px,2vw,28px);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase}
+.bar nav a{text-decoration:none;color:var(--cream);opacity:.82}
+.bar nav a:hover{opacity:1;color:var(--amber)}
+.bar .tix{color:var(--amber);opacity:1}
+@media (max-width:860px){ .bar nav a:not(.tix){display:none} }
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:grid;align-items:center;padding:110px var(--gutter) 70px;
+  background:linear-gradient(90deg,rgba(28,22,18,.94) 0%,rgba(28,22,18,.72) 34%,rgba(28,22,18,.08) 64%),
+             linear-gradient(0deg,var(--darkroom) 0%,transparent 26%),
+             url(img/hero.jpg) 70% 40%/cover no-repeat;}
+.hero-copy{position:relative;width:min(700px,100%);}
+.logo-card{position:relative;transform:rotate(-2.4deg);width:min(640px,94%)}
+.logo-card .tape.a{top:-14px;left:-20px;transform:rotate(-24deg)}
+.logo-card .tape.b{top:-10px;right:-26px;transform:rotate(18deg);width:96px}
+.strip{display:inline-block;margin:-6px 0 0 34px;padding:14px 26px 16px 22px;transform:rotate(1.3deg);font-size:clamp(17px,1.6vw,21px);letter-spacing:.01em}
+.recast{color:#D84C35;display:block;margin:8px 0 0 70px;font-size:clamp(38px,4.6vw,64px);-webkit-text-stroke:.6px var(--pen);line-height:1;transform:rotate(-3deg);transform-origin:left;
+  clip-path:inset(-20% 100% -20% 0)}
+html:not(.js) .recast{clip-path:none}
+@keyframes write{to{clip-path:inset(-20% -2% -20% 0)}}
+/* opening sequence: the board lights, the title is slapped on and taped, the line is typed, the pen answers, the ticket lands */
+.hero>*{z-index:1}
+.hero::after{content:"";position:absolute;inset:0;background:var(--darkroom);pointer-events:none;z-index:0;opacity:0;transition:opacity 1.6s ease}
+.js .hero::after{opacity:1}
+.js .hero.lit::after{opacity:0}
+.js .hero .logo-card{opacity:0;transform:translateY(-26px) rotate(-7deg) scale(1.05)}
+.js .hero.logo .logo-card{opacity:1;transform:rotate(-2.4deg);transition:transform .75s cubic-bezier(.25,1.35,.45,1),opacity .3s}
+.js .hero .logo-card .tape{opacity:0;scale:1.3}
+.js .hero.taped .logo-card .tape{opacity:1;scale:1;transition:opacity .25s,scale .3s cubic-bezier(.3,1.4,.5,1)}
+.js .hero.taped .logo-card .tape.b{transition-delay:.12s}
+.js .hero .strip{opacity:0}
+.js .hero.typing .strip{opacity:1;transition:opacity .25s}
+.js .strip .ch{opacity:0}
+.js .strip .ch.on{opacity:1}
+.hero.inked .recast{animation:write 1.6s cubic-bezier(.45,.05,.4,1) forwards}
+.js .hero .ticket{opacity:0;transform:translateY(46px) rotate(7deg)}
+.js .hero.tix .ticket{opacity:1;transform:rotate(2deg);transition:transform .8s cubic-bezier(.2,1,.3,1),opacity .4s}
+.hero.tix .go .circle path{stroke-dashoffset:0;transition-delay:.7s}
+.js .hero .scrollcue{opacity:0}
+.js .hero.tix .scrollcue{opacity:1;transition:opacity 1s .9s}
+.ticket{position:absolute;right:var(--gutter);bottom:60px;width:300px;padding:20px 22px 18px;transform:rotate(2deg);font-size:13.5px;line-height:1.5;
+  -webkit-mask:radial-gradient(circle 11px at 0 50%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 11px at 100% 50%,transparent 98%,#000) right/51% 100% no-repeat;
+          mask:radial-gradient(circle 11px at 0 50%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 11px at 100% 50%,transparent 98%,#000) right/51% 100% no-repeat}
+.ticket .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#7a5a3c}
+.ticket .v{font-size:19px;font-weight:700;letter-spacing:.02em;margin:2px 0 8px;text-transform:uppercase}
+.ticket hr{border:0;border-top:1.5px dashed rgba(42,26,19,.35);margin:12px -22px}
+.go{position:relative;display:inline-block;font-weight:700;text-transform:uppercase;letter-spacing:.14em;text-decoration:none;color:var(--ink);padding:6px 10px}
+.go .circle{position:absolute;inset:-10px -16px;width:calc(100% + 32px);height:calc(100% + 20px);overflow:visible}
+.go:hover .circle path,.go:focus-visible .circle path,.in .go.auto .circle path{stroke-dashoffset:0}
+.scrollcue{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+@media (max-width:860px){
+  .hero{align-items:end;padding-bottom:40px;background:linear-gradient(0deg,rgba(28,22,18,.97) 0%,rgba(28,22,18,.75) 48%,rgba(28,22,18,.15) 80%),url(img/hero.jpg) 72% 30%/cover no-repeat}
+  .ticket{position:relative;right:auto;bottom:auto;margin:34px 0 0 10px;width:min(300px,90%)}
+  .scrollcue{display:none}
+  .strip{white-space:nowrap;font-size:15px;margin:-4px 0 0 14px;padding:11px 18px 13px 16px}
+  .recast{white-space:nowrap;font-size:clamp(28px,9vw,40px);margin:10px 0 0 22px}
+  .logline .page p{font-size:19px}
+  .under{font-size:11px;letter-spacing:.16em}
+}
+
+/* ---------- sections ---------- */
+section{position:relative;padding:clamp(80px,11vw,150px) var(--gutter)}
+/* one continuous darkroom: soft pools of projector light instead of flat bands */
+.board{background:radial-gradient(60% 46% at 78% 42%,rgba(205,162,107,.075),transparent 100%)}
+section:not(.hero):not(.board){background:radial-gradient(58% 44% at 18% 55%,rgba(181,48,30,.045),transparent 100%)}
+.wrap{max-width:1180px;margin:0 auto}
+
+/* logline */
+.logline .page{max-width:880px;margin:0 auto;padding:clamp(40px,6vw,80px) clamp(28px,6vw,90px) clamp(48px,6vw,86px);transform:rotate(-.6deg)}
+.logline .page p{margin:0;font-size:clamp(21px,2.5vw,31px);line-height:1.55}
+.logline .slug{display:block;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#7a5a3c;margin-bottom:26px}
+.logline .label{margin-left:max(0px,calc((100% - 880px)/2))}
+
+/* trailer */
+.screen{position:relative;max-width:1180px;margin:0 auto;aspect-ratio:1.9/1;background:#000 url(img/x81.jpg) center/cover;box-shadow:0 0 0 1px rgba(255,255,255,.04),0 40px 120px rgba(205,162,107,.10)}
+.screen::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 90% at 50% 50%,transparent 55%,rgba(0,0,0,.55));pointer-events:none}
+.screen button{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-2deg);border:0;cursor:pointer;font:700 15px/1 var(--type);letter-spacing:.2em;text-transform:uppercase;color:var(--ink);padding:18px 26px}
+.screen button span{color:var(--pen);font-family:var(--hand);font-weight:400;letter-spacing:0;text-transform:none;font-size:22px;margin-left:10px}
+.screen iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.under{display:flex;justify-content:space-between;max-width:1180px;margin:14px auto 0;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+/* synopsis */
+.syn{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(30px,5vw,70px);align-items:start}
+.syn .page{padding:clamp(34px,4vw,56px);transform:rotate(.5deg)}
+.syn .page p{margin:0 0 1.1em}
+.photos{position:relative;min-height:520px}
+.photo{position:absolute;background:#f4efe4;padding:10px 10px 12px}
+.photo img{width:100%}
+.photo figcaption{font-size:10.5px;letter-spacing:.18em;color:#7a6650;margin-top:8px}
+.photo.p1{width:92%;top:10px;right:0;transform:rotate(3deg)}
+.photo.p2{width:80%;top:250px;left:0;transform:rotate(-4deg)}
+.photo .tape{top:-16px;left:40%;transform:rotate(-6deg)}
+@media (max-width:860px){ .syn{grid-template-columns:1fr} .photos{min-height:380px} .photo.p2{top:190px} }
+
+/* characters */
+.wall{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,44px);padding-top:10px}
+.pola{all:unset;cursor:pointer;display:block;background:#F5F1E7;padding:12px 12px 0;position:relative;transition:transform .35s cubic-bezier(.3,.7,.3,1),filter .35s}
+.pola img{aspect-ratio:1/1;object-fit:cover;width:100%;filter:saturate(.92) contrast(1.02)}
+.pola .role{display:block;text-align:center;font-family:var(--hand);color:var(--pen);font-size:clamp(26px,2.4vw,34px);line-height:1;padding:14px 0 6px}
+.pola .who{display:block;text-align:center;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#5d4a3a;padding:0 0 16px}
+.pola:nth-child(1){transform:rotate(-3deg)} .pola:nth-child(2){transform:rotate(2deg) translateY(18px)}
+.pola:nth-child(3){transform:rotate(-1.5deg) translateY(-6px)} .pola:nth-child(4){transform:rotate(3deg) translateY(14px)}
+.pola:hover,.pola:focus-visible{transform:rotate(0) translateY(-10px) scale(1.03);z-index:2}
+.pola .pin{position:absolute;top:-9px;left:50%;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#e46b4f,#8e2414 70%);box-shadow:0 3px 4px rgba(0,0,0,.45)}
+.wall-note{margin-top:56px;color:var(--muted);font-size:14px;text-align:center}
+@media (max-width:860px){ .wall{grid-template-columns:repeat(2,minmax(0,1fr))} }
+
+/* stills: film strip */
+.strip-wrap{position:relative;margin:0 calc(var(--gutter)*-1)}
+.film{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab;padding:0 var(--gutter)}
+.film::-webkit-scrollbar{display:none}
+.film.drag{cursor:grabbing;scroll-snap-type:none}
+.frame{flex:0 0 auto;scroll-snap-align:center;background:#0d0a08;padding:46px 10px;position:relative}
+.frame::before,.frame::after{content:"";position:absolute;left:0;right:0;height:12px;
+  background:repeating-linear-gradient(90deg,transparent 0 9px,#E8DCC8 9px 21px,transparent 21px 30px);border-radius:2px;opacity:.85}
+.frame::before{top:10px} .frame::after{bottom:10px}
+.frame img{height:clamp(220px,34vw,430px);width:auto;aspect-ratio:1.896/1;object-fit:cover;user-select:none;-webkit-user-drag:none}
+.frame .ec{position:absolute;top:27px;left:18px;font-size:11px;line-height:1;letter-spacing:.16em;color:var(--amber)}
+.frame img{cursor:zoom-in}
+.strip-nav{display:flex;gap:10px;justify-content:flex-end;margin-top:18px}
+.strip-nav button{all:unset;cursor:pointer;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);padding:8px 12px;border:1px solid rgba(241,236,226,.25)}
+.strip-nav button:hover{border-color:var(--amber);color:var(--amber)}
+
+/* statement */
+.stmt{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(30px,5vw,70px);align-items:start}
+.stmt .photo{position:relative;transform:rotate(-2.5deg);width:100%}
+.stmt .page{padding:clamp(34px,4.5vw,64px);transform:rotate(.4deg)}
+.stmt .page p{margin:0 0 1.15em}
+.stmt .sig{margin-top:1.6em;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#7a5a3c}
+@media (max-width:860px){ .stmt{grid-template-columns:1fr} .stmt .photo{max-width:420px} }
+
+/* premiere: slate */
+.prem{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(30px,5vw,80px);align-items:center}
+.slate{position:relative;max-width:620px;transform:rotate(-1.5deg)}
+.sticks{position:relative;height:58px;transform-origin:0 100%;transform:rotate(-16deg);transition:transform .35s cubic-bezier(.7,0,.9,.4)}
+.in .sticks{transform:rotate(0)}
+.sticks i,.base i{position:absolute;inset:0;background:repeating-linear-gradient(115deg,#141110 0 34px,#ece6da 34px 68px);border-radius:4px 4px 0 0}
+.base{position:relative;height:30px;margin-top:3px} .base i{border-radius:0}
+.board-black{background:#141110;color:#ece6da;padding:20px 22px 24px;border-radius:0 0 6px 6px;
+  background-image:var(--grain);background-blend-mode:overlay}
+.cells{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid rgba(236,230,218,.75)}
+.cell{border:1.5px solid rgba(236,230,218,.75);padding:8px 10px 10px;min-height:66px}
+.cell .k{font-size:10px;letter-spacing:.22em;opacity:.7;text-transform:uppercase}
+.cell .v{font-family:var(--hand);font-size:clamp(20px,2vw,27px);line-height:1.15;margin-top:4px;white-space:nowrap}
+.c4 .v{font-size:clamp(34px,3.6vw,48px);letter-spacing:.02em}
+.c4{grid-column:span 4}.c2{grid-column:span 2}
+.prem .info p{margin:0 0 14px}
+.prem .laurel{width:min(300px,70%);margin:0 0 26px;opacity:.95}
+.btn{display:inline-block;margin-top:14px;padding:16px 26px;background:var(--amber);color:var(--ink);text-decoration:none;font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:14px;transform:rotate(-1deg);transition:transform .25s,background .25s}
+.btn:hover{background:var(--cream);transform:rotate(0)}
+.more{margin-top:46px;padding-top:22px;border-top:1px dashed rgba(241,236,226,.25);color:var(--muted);font-size:14px}
+@media (max-width:860px){ .prem{grid-template-columns:1fr} }
+
+/* credits */
+.credits{text-align:center}
+.billing{max-width:860px;margin:0 auto;text-transform:uppercase;letter-spacing:.12em;font-size:14px;line-height:2.1;color:var(--cream)}
+.billing .r{color:var(--muted);font-size:11.5px;letter-spacing:.2em}
+.billing b{font-weight:700}
+.billing .pr{display:inline-block;margin:0 .7em}
+@media (max-width:860px){
+  .billing{font-size:12.5px;line-height:1.7;letter-spacing:.1em}
+  .billing>div{margin-bottom:12px}
+  .billing .pr{display:block;margin:0 0 8px}
+  .billing .pr .r{display:block}
+  .cell .v{white-space:normal;font-size:18px}
+  .c4 .v{font-size:30px}
+  .cell{min-height:58px;padding:7px 8px 9px}
+}
+.team{max-width:880px;margin:70px auto 0;text-align:left}
+.team details{border-top:1px dashed rgba(241,236,226,.2);padding:14px 0}
+.team summary{cursor:pointer;list-style:none;display:grid;grid-template-columns:minmax(0,1fr) auto 18px;align-items:baseline;gap:20px;text-transform:uppercase;letter-spacing:.14em;font-size:14px}
+.team summary .r{text-align:right}
+.team summary::-webkit-details-marker{display:none}
+.team summary .r{color:var(--muted);font-size:11.5px;letter-spacing:.2em}
+.team summary::after{content:"+";color:var(--amber);text-align:right} .team details[open] summary::after{content:"\2013"}
+.team details p{color:#d9cfbf;font-size:15.5px;margin:12px 0 4px;max-width:70ch}
+@media (max-width:860px){
+  .team summary{grid-template-columns:minmax(0,1fr) 18px;row-gap:4px}
+  .team summary .r{grid-column:1;grid-row:2;text-align:left}
+  .team summary::after{grid-column:2;grid-row:1}
+}
+
+/* contact */
+.contact{text-align:center;padding-bottom:60px}
+.contact .mail{font-size:clamp(20px,3vw,34px);text-decoration:none;border-bottom:1.5px solid var(--amber)}
+.contact .small{margin-top:60px;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.contact .label{margin:0 auto 34px}
+.contact .end{height:30px;width:auto;margin:40px auto 0;opacity:.85}
+.contact-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(36px,6vw,90px);align-items:center;text-align:left}
+.contact-grid .label{margin:0 0 30px}
+.contact-grid .press{margin:18px 0 0;color:var(--muted);font-size:14px;line-height:1.8}
+.posterpin{position:relative;margin:0;transform:rotate(-2deg);background:#F5F1E7;padding:10px}
+.posterpin img{width:100%}
+.posterpin .tape{top:-15px;left:50%;margin-left:-60px;transform:rotate(3deg)}
+.posterpin figcaption{position:absolute;right:-16px;bottom:-34px;transform:rotate(-4deg)}
+.posterpin figcaption a{font-family:var(--hand);color:#D84C35;font-size:30px;text-decoration:none;white-space:nowrap}
+.posterpin figcaption a:hover{text-decoration:underline}
+@media (max-width:860px){ .contact-grid{grid-template-columns:1fr;text-align:center} .contact-grid .label{margin:0 auto 26px} .posterpin{max-width:300px;margin:0 auto 30px} .posterpin figcaption{right:-6px} }
+.bar nav a.on{color:var(--amber);opacity:1}
+
+/* dialog */
+dialog{border:0;padding:0;max-width:min(880px,94vw);background:transparent;color:var(--ink)}
+dialog::backdrop{background:rgba(14,10,8,.82)}
+.sheet{display:grid;grid-template-columns:260px 1fr;gap:34px;padding:40px}
+.sheet img{width:100%;transform:rotate(-2deg);background:#F5F1E7;padding:8px}
+.sheet h3{margin:0;font-size:22px;letter-spacing:.06em;text-transform:uppercase}
+.sheet .pen{font-size:30px;display:block;margin:2px 0 14px}
+.sheet p{margin:0 0 1em;font-size:15.5px}
+.close{all:unset;cursor:pointer;position:absolute;top:14px;right:18px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#7a5a3c}
+@media (max-width:700px){ .sheet{grid-template-columns:1fr;padding:30px 24px} .sheet img{max-width:220px} }
+dialog.light{max-width:min(1400px,96vw)} dialog.light img{width:100%;height:auto} dialog.light .close{color:var(--cream);top:-34px;right:0}
+
+/* reveal */
+.rise{opacity:0;transform:translateY(24px);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)}
+.in .rise,.rise.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .recast{clip-path:none} .mark path,.circle path{stroke-dashoffset:0} .sticks{transform:none} .rise{opacity:1;transform:none}
+  .js .hero::after{opacity:0} .js .hero .logo-card,.js .hero .logo-card .tape,.js .hero .strip,.js .strip .ch,.js .hero .ticket,.js .hero .scrollcue{opacity:1!important}
+}
+</style>
+</head>
+<body>
+
+<header class="bar" id="bar">
+  <a href="#top"><img class="mini" src="img/logo-amber.png" alt="AUTOFICTION"></a>
+  <nav aria-label="Sections">
+    <a href="#film">The film</a><a href="#trailer">Trailer</a><a href="#characters">Characters</a><a href="#stills">Stills</a><a href="#statement">Statement</a><a href="#premiere" class="tix">Tickets</a>
+  </nav>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero" aria-label="AUTOFICTION">
+    <div class="hero-copy">
+      <div class="logo-card shadow">
+        <span class="tape a"></span><span class="tape b"></span>
+        <picture><source srcset="img/logo-label.webp" type="image/webp"><img src="img/logo-label.png" alt="AUTOFICTION" width="1165" height="666"></picture>
+      </div>
+      <p class="sr">You can’t change the past. But you can recast it.</p>
+      <div aria-hidden="true">
+        <span class="strip paper shadow torn">You can’t change the past.</span>
+        <span class="recast pen">But you can recast it.</span>
+      </div>
+    </div>
+    <div class="ticket paper shadow" id="ticket">
+      <div class="k">World premiere</div>
+      <div class="v">Lone Star Film Festival</div>
+      <div>Friday, November 6, 2026<br>5:45 PM CT · The Modern, Fort Worth</div>
+      <hr>
+      <a class="go" href="https://lsff26.eventive.org/schedule/autofiction-6abc8140c08f027d74b2b454" target="_blank" rel="noopener">Get tickets
+        <svg class="circle" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path d="M150 8 C 70 -2, 8 10, 10 32 C 12 52, 120 60, 182 44 C 204 36, 196 12, 140 6"/></svg>
+      </a>
+    </div>
+    <a class="scrollcue" href="#film">Scroll</a>
+  </section>
+
+  <!-- LOGLINE -->
+  <section class="logline board" id="film">
+    <div class="wrap">
+      <img class="label" src="img/h-logline.png" alt="Logline">
+      <div class="page paper shadow torn rise">
+        <span class="slug">A film by Nick Paul White</span>
+        <p>AUTOFICTION is a darkly comic self-portrait of a filmmaker attempting to <span class="mark">rewrite his own past<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M3 12 C 70 5, 150 17, 297 7"/></svg></span> and discovering just how slippery walking the line between fact and fiction can be.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAILER -->
+  <section id="trailer">
+    <div class="wrap">
+      <img class="label" src="img/h-trailer.png" alt="Trailer">
+      <div class="screen rise" id="screen">
+        <button class="paper" id="play" type="button">Play the teaser <span>1:06</span></button>
+      </div>
+      <div class="under"><span>Teaser trailer</span><span>Autofiction · 2026 · 82 minutes</span></div>
+    </div>
+  </section>
+
+  <!-- SYNOPSIS -->
+  <section class="board" id="synopsis">
+    <div class="wrap">
+      <img class="label" src="img/h-synopsis.png" alt="Synopsis">
+      <div class="syn">
+        <div class="page paper shadow torn rise">
+          <p>Based on fact and expanded into fiction, AUTOFICTION is a dark comedy about filmmaker Nick Paul White, who sets out to make a short film secretly inspired by a chance encounter with his ex in Paris.</p>
+          <p>When an old friend – who knows the real story – joins the project, Nick finds himself caught between his desire for authenticity and his reluctance to admit his own role in the relationship’s demise.</p>
+          <p>As the film threatens to unravel, Nick steps into the lead role himself, turning the project into a raw act of self-exposure, forcing him to take responsibility for his past and embrace the uncertainty of his future.</p>
+        </div>
+        <div class="photos rise" aria-hidden="true">
+          <figure class="photo p1 shadow"><span class="tape"></span><img src="img/x3.jpg" alt=""><figcaption>01:01:54:17</figcaption></figure>
+          <figure class="photo p2 shadow"><img src="img/x20.jpg" alt=""><figcaption>01:18:28:18</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHARACTERS -->
+  <section id="characters">
+    <div class="wrap">
+      <img class="label" src="img/h-characters.png" alt="Characters">
+      <div class="wall">
+        <button class="pola shadow" type="button" data-bio="nick"><span class="pin"></span><img src="img/cast-nick.jpg" alt="Nick Paul White"><span class="role">Nick</span><span class="who">Nick Paul White</span></button>
+        <button class="pola shadow" type="button" data-bio="karieann"><span class="pin"></span><img src="img/cast-karieann.jpg" alt="KarieAnn Randol"><span class="role">KarieAnn</span><span class="who">KarieAnn Randol</span></button>
+        <button class="pola shadow" type="button" data-bio="jacob"><span class="pin"></span><img src="img/cast-jacob.jpg" alt="Jacob Schatz"><span class="role">Jacob</span><span class="who">Jacob Schatz</span></button>
+        <button class="pola shadow" type="button" data-bio="bailey"><span class="pin"></span><img src="img/cast-producer.jpg" alt="C. Bailey Werner"><span class="role">The Producer</span><span class="who">C. Bailey Werner</span></button>
+      </div>
+      <p class="wall-note">Tap a photo for the actor’s bio.</p>
+    </div>
+  </section>
+
+  <!-- STILLS -->
+  <section class="board" id="stills">
+    <div class="wrap">
+      <img class="label" src="img/h-stills.png" alt="Stills">
+    </div>
+    <div class="strip-wrap">
+      <div class="film" id="film-strip" tabindex="0" aria-label="Film stills, scroll sideways"></div>
+    </div>
+    <div class="wrap strip-nav"><button type="button" id="prev" aria-label="Previous stills">← Back</button><button type="button" id="next" aria-label="More stills">More →</button></div>
+  </section>
+
+  <!-- STATEMENT -->
+  <section id="statement">
+    <div class="wrap">
+      <img class="label" src="img/h-statement.png" alt="Director’s statement" style="height:clamp(80px,10vw,128px)">
+      <div class="stmt">
+        <figure class="photo shadow rise" style="margin:0"><span class="tape" style="top:-16px;left:30%"></span><img src="img/x162.jpg" alt="Nick in the dark, the film on his face"><figcaption>01:52:22:20</figcaption></figure>
+        <div class="page paper shadow torn rise">
+          <p>Ten years ago a serendipitous encounter with an ex-girlfriend sparked the initial concept for a short film; two former lovers reunited by fate spend one last night together. It’s a familiar premise, but I believed the emotional impact of that evening could lend a particular sensitivity to the story. As we moved closer to production, I began to question whether the script I’d written truly reflected my memory of that night. Details had been altered, settings changed. I even rewrote the ending to have it feel more hopeful. I wasn’t just using my past as inspiration, <span class="mark">I was re-writing it.<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M3 9 C 90 15, 190 3, 297 11"/></svg></span></p>
+          <p>This gave rise to an idea that interested me far more than the initial concept. So instead, I decided to make a film about an artist blindsided by a memory he can’t fully accept, driven to rebuild it until the fiction collapses under the weight of truth. The last piece of the puzzle was accepting that to make this film honestly, I had to play the role myself; use my real name, my real identity and embrace the vulnerable and sometimes unlikeable aspects of my character.</p>
+          <p>As a filmmaker, I’m drawn to uniquely personal stories that can only be told through cinema. With AUTOFICTION, that meant turning the camera on myself and allowing the filmmaking process to expose as much as it constructed. It’s the most vulnerable I’ve ever been in my work, and the most honest.</p>
+          <div class="sig">Nick Paul White, writer and director</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREMIERE -->
+  <section class="board" id="premiere">
+    <div class="wrap">
+      <img class="label" src="img/h-premiere.png" alt="Premiere">
+      <div class="prem">
+        <div class="slate shadow" id="slate" role="img" aria-label="Clapperboard: Autofiction, world premiere, Friday November 6 2026, 5:45 PM, The Modern, Fort Worth">
+          <div class="sticks"><i></i></div>
+          <div class="base"><i></i></div>
+          <div class="board-black">
+            <div class="cells">
+              <div class="cell c4"><div class="k">Production</div><div class="v">AUTOFICTION</div></div>
+              <div class="cell c2"><div class="k">Scene</div><div class="v">World premiere</div></div>
+              <div class="cell c2"><div class="k">Date</div><div class="v">Fri 11 · 6 · 26</div></div>
+              <div class="cell c2"><div class="k">Director</div><div class="v">Nick Paul White</div></div>
+              <div class="cell c2"><div class="k">Camera</div><div class="v">D. Bauer</div></div>
+              <div class="cell c2"><div class="k">Location</div><div class="v">The Modern<br>Fort Worth</div></div>
+              <div class="cell"><div class="k">Call</div><div class="v">5:45 PM</div></div>
+              <div class="cell"><div class="k">Take</div><div class="v">1</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="info rise">
+          <picture><source srcset="img/laurel.webp" type="image/webp"><img class="laurel" src="img/laurel.png" alt="Official Selection, Lone Star Film Festival 2026"></picture>
+          <p>The world premiere of AUTOFICTION screens at the 20th Lone Star Film Festival on Friday, November 6, 2026 at 5:45 PM, at The Modern, 3200 Darnell St, Fort Worth.</p>
+          <p>Writer/director Nick Paul White and producer Kathryn Himoff will be in attendance for a Q&amp;A following the screening.</p>
+          <a class="btn" href="https://lsff26.eventive.org/schedule/autofiction-6abc8140c08f027d74b2b454" target="_blank" rel="noopener">Get tickets</a>
+          <div class="more"><img src="img/h-screenings.png" alt="Screenings" style="height:36px;width:auto;margin-bottom:10px">More dates to be announced.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDITS -->
+  <section class="credits" id="credits">
+    <div class="wrap">
+      <div class="billing">
+        <div class="r">Synchrofilm Ltd. presents</div>
+        <div><b>Nick Paul White · KarieAnn Randol · Jacob Schatz</b> and <b>C. Bailey Werner</b></div>
+        <div><span class="pr"><span class="r">music by</span> Jodie Landau</span> <span class="pr"><span class="r">editor</span> Kathryn Himoff, A.C.E.</span> <span class="pr"><span class="r">production designer</span> Devin Sudweeks</span></div>
+        <div><span class="pr"><span class="r">director of photography</span> D. Bauer</span> <span class="pr"><span class="r">associate producers</span> Luke Lidell · Billy Bonifield · Dorian Chotard</span></div>
+        <div><span class="pr"><span class="r">co-producers</span> D. Bauer · J.A. Montgomery</span> <span class="pr"><span class="r">line producer</span> Daria Alexander</span></div>
+        <div><span class="pr"><span class="r">produced by</span> Nick Paul White · Kathryn Himoff</span></div>
+        <div><span class="pr"><span class="r">written and directed by</span> <b>Nick Paul White</b></span></div>
+      </div>
+      <div class="team">
+        <img class="label" src="img/h-teambios.png" alt="Team bios" style="height:56px">
+        <details><summary>Kathryn Himoff, A.C.E. <span class="r">Producer · Editor</span></summary><p>Kathryn Himoff is a veteran editor and producer of feature films, television and documentaries. Her credits include <i>Pollock</i>, <i>Appaloosa</i>, <i>House of 1000 Corpses</i>, <i>The Sisterhood of the Traveling Pants</i> and additional editing on <i>Guardians of the Galaxy Vol. 2</i>, and she is a regular collaborator of Ed Harris. Her television pilots include <i>The Man in the High Castle</i>, <i>The Office</i> and <i>Ugly Betty</i>. Her recent work includes the Netflix films <i>Players</i> (2024) and <i>Champagne Problems</i> (2025).</p></details>
+        <details><summary>D. Bauer <span class="r">Director of photography · Co-producer</span></summary><p>Raised in the Bay Area before calling Austin home, Dani’s work focuses on grounding the mysterious and ephemeral with enigmatic imagery. Since graduating college with a BS in Film, she’s been published in Shuba, Elegant, One Shot, BTC, Dark Beauty, and Lividity. The last narrative she worked on premiered at Fantastic Fest. When not on set, Dani enjoys watching horror movies or listening to horror soundtracks for inspiration and aromatherapy. Employing techniques learned as a fashion filmmaker, and a touch of magic, she strives to bring a fresh and unique perspective to each project.</p></details>
+        <details><summary>Jodie Landau <span class="r">Music</span></summary><p>Jodie Landau is a Los Angeles-based composer, vocalist and percussionist whose music draws on chamber music, rock and jazz for live performance, film, theater and dance. He is a member of the Grammy-winning vocal ensemble Roomful of Teeth, the Icelandic label Bedroom Community and the Los Angeles collective wild Up. His singing can be heard on Simon Franglen’s scores for <i>Avatar: The Way of Water</i> and <i>Avatar: Fire and Ash</i>, and he was lead copyist, orchestrator, conductor and performer on David Longstreth’s score for <i>The Legend of Ochi</i>.</p></details>
+        <details><summary>Aaron Glascock <span class="r">Sound design and re-recording</span></summary><p>Aaron Glascock is a supervising sound editor, sound designer and re-recording mixer who has worked in film sound since the 1980s. He received an Academy Award nomination for Best Sound Editing for <i>Birdman or (The Unexpected Virtue of Ignorance)</i>, shared with Martin Hernández, and an MPSE Golden Reel Award for <i>War of the Worlds</i>. His credits as supervising sound editor include <i>Insomnia</i>, <i>Good Night, and Good Luck.</i>, <i>The Town</i>, <i>Spring Breakers</i>, <i>Creed II</i> and <i>The Beekeeper</i>. With Christopher S. Aud he supervised and mixed the sound for <i>Anomalisa</i>.</p></details>
+        <details><summary>Christopher S. Aud <span class="r">Sound design and re-recording</span></summary><p>Christopher S. Aud is a supervising sound editor, sound designer and re-recording mixer whose career dates to the early 1990s. With Aaron Glascock he supervised and mixed the sound for <i>Anomalisa</i>, recording all of the film’s ADR. He was a re-recording mixer on <i>The Disaster Artist</i>, <i>The Beekeeper</i> and <i>The Accountant 2</i>, a sound designer on <i>Mad Max: Fury Road</i>, and a sound effects editor on <i>Bram Stoker’s Dracula</i>, <i>The Thin Red Line</i>, <i>Blade Runner 2049</i> and <i>Spider-Man: Into the Spider-Verse</i>.</p></details>
+        <details><summary>Natasha Leonnet <span class="r">Supervising colorist</span></summary><p>Natasha Leonnet is a senior colorist at Picture Shop in Los Angeles with more than 20 years of experience finishing features and series. She has won HPA Awards for Outstanding Color Grading for <i>Spider-Man: Into the Spider-Verse</i> and <i>Spider-Man: Across the Spider-Verse</i>, and has been nominated for films including <i>Whiplash</i>, <i>Hidden Figures</i>, <i>First Man</i> and <i>Candyman</i>. Her more than 100 credits include <i>La La Land</i>, <i>Juno</i>, <i>Sin City</i>, <i>Blood Diamond</i> and <i>Up in the Air</i>.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact board" id="contact">
+    <div class="contact-grid">
+      <figure class="posterpin shadow rise"><span class="tape"></span><img src="img/poster-web.jpg" alt="AUTOFICTION poster: You can’t change the past. But you can recast it." width="800" height="1185" loading="lazy"><figcaption><a href="img/poster.jpg" download="AUTOFICTION poster.jpg">Download the poster</a></figcaption></figure>
+      <div>
+        <img class="label" src="img/h-contact.png" alt="Contact">
+        <a class="mail" href="mailto:nick@synchrofilmltd.com">nick@synchrofilmltd.com</a>
+        <p class="press">Press, festivals and sales<br><a href="https://www.instagram.com/autofictionfilm/" target="_blank" rel="noopener">Instagram @autofictionfilm</a></p>
+      </div>
+    </div>
+    <img class="end" src="img/logo-cream.png" alt="">
+    <p class="small">AUTOFICTION © 2026 Synchrofilm Ltd.</p>
+  </section>
+</main>
+
+<dialog id="bio"><div class="paper sheet"><button class="close" type="button" data-close>Close</button><img id="bio-img" alt=""><div><h3 id="bio-name"></h3><span class="pen" id="bio-role"></span><div id="bio-text"></div></div></div></dialog>
+<dialog id="light" class="light"><button class="close" type="button" data-close>Close</button><img id="light-img" alt=""></dialog>
+
+<script>
+(()=>{
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // opening sequence
+  const hero=document.querySelector('.hero');
+  if(reduce){ hero.classList.add('lit','logo','taped','typing','inked','tix'); }
+  else{
+    const strip=hero.querySelector('.strip'), txt=strip.textContent; strip.textContent='';
+    const chars=[...txt].map(c=>{ const s=document.createElement('span'); s.className='ch'; s.textContent=c; strip.appendChild(s); return s; });
+    const at=(ms,fn)=>setTimeout(fn,ms);
+    let started=false;
+    const run=()=>{ if(started||document.hidden) return; started=true;
+    at(60,()=>hero.classList.add('lit'));
+    at(450,()=>hero.classList.add('logo'));
+    at(1050,()=>hero.classList.add('taped'));
+    at(1450,()=>{ hero.classList.add('typing'); let t=200;
+      chars.forEach(s=>{ t+= s.textContent===' ' ? 70 : 48+Math.random()*62; at(t,()=>s.classList.add('on')); });
+      at(t+380,()=>hero.classList.add('inked'));
+      at(t+1250,()=>hero.classList.add('tix')); });
+    };
+    run(); document.addEventListener('visibilitychange',run);
+  }
+  // header
+  const bar=document.getElementById('bar');
+  const onScroll=()=>bar.classList.toggle('solid',scrollY>innerHeight*.6);
+  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  // torn edges (seeded so they stay put)
+  let seed=7; const rnd=()=>{seed=(seed*16807)%2147483647;return (seed-1)/2147483646};
+  document.querySelectorAll('.torn').forEach(el=>{
+    const n=48, top=[], bot=[];
+    for(let i=0;i<=n;i++){ const x=(i/n*100).toFixed(2); top.push(`${x}% ${(rnd()*7+1.5).toFixed(1)}px`); }
+    for(let i=n;i>=0;i--){ const x=(i/n*100).toFixed(2); bot.push(`${x}% calc(100% - ${(rnd()*8+1.5).toFixed(1)}px)`); }
+    el.style.clipPath=`polygon(${top.join(',')},${bot.join(',')})`;
+  });
+
+  // pen strokes: measure each path so it draws exactly once
+  document.querySelectorAll('.mark path,.circle path').forEach(p=>{ const L=Math.ceil(p.getTotalLength()); p.style.setProperty('--len',L); });
+
+  // reveal on scroll
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.25});
+  document.querySelectorAll('section,.rise').forEach(s=>io.observe(s));
+  if(reduce) document.querySelectorAll('section,.rise').forEach(s=>s.classList.add('in'));
+
+  // nav: mark the section being read
+  const navFor={film:'film',synopsis:'film',trailer:'trailer',characters:'characters',stills:'stills',statement:'statement',premiere:'premiere'};
+  const links=[...document.querySelectorAll('.bar nav a')];
+  const spy=new IntersectionObserver(es=>es.forEach(e=>{ if(!e.isIntersecting) return; const k=navFor[e.target.id];
+    links.forEach(a=>a.classList.toggle('on', !!k && a.getAttribute('href')==='#'+k)); }),{rootMargin:'-45% 0px -50% 0px'});
+  document.querySelectorAll('main section[id]').forEach(sec=>spy.observe(sec));
+
+  // trailer
+  document.getElementById('play').onclick=()=>{
+    document.getElementById('screen').innerHTML='<iframe src="https://player.vimeo.com/video/1133678004?autoplay=1&badge=0&autopause=0&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" title="AUTOFICTION teaser trailer"></iframe>';
+  };
+
+  // film strip
+  const STRIP=[[3,'01:01:54:17'],[107,'01:02:45:21'],[54,'01:02:36:08'],[20,'01:18:28:18'],[67,'01:19:15:17'],[142,'01:25:18:21'],[79,'01:49:36:23'],[31,'01:49:42:18'],[33,'01:51:46:16'],[36,'01:53:57:20'],[90,'02:04:23:14'],[92,'02:14:00:16'],[49,'02:18:32:12'],[50,'02:19:36:15']];
+  const film=document.getElementById('film-strip');
+  film.innerHTML=STRIP.map(([n,tc])=>`<div class="frame"><span class="ec">${tc}</span><img src="img/s${n}.jpg" alt="Still from AUTOFICTION at ${tc}" loading="lazy" data-n="${n}"></div>`).join('');
+  const step=()=>film.querySelector('.frame').getBoundingClientRect().width;
+  document.getElementById('next').onclick=()=>film.scrollBy({left:step(),behavior:'smooth'});
+  document.getElementById('prev').onclick=()=>film.scrollBy({left:-step(),behavior:'smooth'});
+  let down=false,sx=0,sl=0,moved=0;
+  film.addEventListener('pointerdown',e=>{ if(e.pointerType!=='mouse')return; down=true;moved=0;sx=e.clientX;sl=film.scrollLeft;film.classList.add('drag'); });
+  addEventListener('pointermove',e=>{ if(!down)return; moved+=Math.abs(e.movementX); film.scrollLeft=sl-(e.clientX-sx); });
+  addEventListener('pointerup',()=>{ down=false; film.classList.remove('drag'); });
+  const light=document.getElementById('light');
+  film.addEventListener('click',e=>{ const img=e.target.closest('img'); if(!img||moved>6)return; document.getElementById('light-img').src=img.src; document.getElementById('light-img').alt=img.alt; light.showModal(); });
+
+  // bios
+  const BIOS={
+    nick:{n:'Nick Paul White',r:'Nick',img:'img/cast-nick.jpg',t:['Nick Paul White is an Austin-based writer and director whose work explores the boundaries between reality and performance. Born in Los Angeles, he began his career as a production assistant in film and television, but after years within the studio system, he sought a more personal and instinctive approach to storytelling. Relocating to Austin, he began working as a videographer and editor on a range of non-fiction projects—an experience that reoriented his filmmaking toward authenticity, intimacy, and lived experience.','Working with a tight-knit group of collaborators (and even tighter budgets), Nick moves fluidly between narrative and documentary forms, chasing hidden truths and inspired accidents. His short film <i>The Eternal Wife</i> (2019), based on his mother’s journey to rediscover love after loss, screened at multiple festivals including Lone Star, San Antonio, and Austin Spotlight—where it won Best Actress—and the Love &amp; Hope International Film Festival in Barcelona.']},
+    karieann:{n:'KarieAnn Randol',r:'KarieAnn',img:'img/cast-karieann.jpg',t:['KarieAnn Randol is a Texas-based actress who has worked professionally for more than a decade. Her first film, the Austin feature <i>Why Lie? Beer, Women, Chicken Wings</i>, earned her a Best Actress nomination in 2015. In 2021 her leading role in the short film <i>Malignant</i>, directed by Morgan Bond and Nickolas Grisham, premiered in the Texas Shorts competition at SXSW, and she won Best Actress at the Hill Country Film Festival.']},
+    jacob:{n:'Jacob Schatz',r:'Jacob',img:'img/cast-jacob.jpg',t:['Jacob Schatz is a Texas-based actor who has worked professionally since 2013. He studied acting at Southern Oregon University, immersing himself in Stanislavsky, Shakespeare and Greek theatre, before moving to Texas, where he played Polynices in Fox Den Theatre’s original production <i>Oedipus the Tyrant</i> and appeared in STAGE Austin’s <i>The Playboy of the Western World</i>. He played the lead role of Peter in <i>Three Headed Beast</i>, directed by Fernando Andrés and Tyler Rugh, which premiered in the U.S. Narrative Competition at the 2022 Tribeca Festival.']},
+    bailey:{n:'C. Bailey Werner',r:'The Producer',img:'img/cast-producer.jpg',t:['C. Bailey Werner is a writer, director and producer originally from Texas. He got his start in sketch comedy with The Cuddle Squad and made his feature directing debut with the horror comedy <i>A Perfect Host</i> (2020). He produced and acted in the comedy feature <i>The Get Together</i> (2021), wrote, directed and starred in the romantic comedy <i>The One You’re With</i> (2021), and created the docu-series <i>Van Go</i>, serving as its showrunner.']}
+  };
+  const bio=document.getElementById('bio');
+  document.querySelectorAll('.pola').forEach(b=>b.onclick=()=>{ const d=BIOS[b.dataset.bio];
+    document.getElementById('bio-img').src=d.img; document.getElementById('bio-img').alt=d.n;
+    document.getElementById('bio-name').textContent=d.n; document.getElementById('bio-role').textContent='as '+d.r;
+    document.getElementById('bio-text').innerHTML=d.t.map(p=>`<p>${p}</p>`).join(''); bio.showModal(); });
+  document.querySelectorAll('[data-close]').forEach(c=>c.onclick=()=>c.closest('dialog').close());
+  document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',e=>{ if(e.target===d) d.close(); }));
+})();
+</script>
+</body>
+</html>
